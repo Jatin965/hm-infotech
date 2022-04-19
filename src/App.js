@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
 
 function App() {
+  const [selected, setSelected] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="container">
+        <div
+          style={
+            selected === 4 || selected === 0
+              ? { background: "red" }
+              : { background: "yellow" }
+          }
+          className="inputs"
         >
-          Learn React
-        </a>
-      </header>
+          <input onChange={() => setSelected(0)} type="checkbox" checked />
+          <input onChange={() => setSelected(1)} type="checkbox" />
+          <input onChange={() => setSelected(2)} type="checkbox" />
+          <input onChange={() => setSelected(3)} type="checkbox" />
+          <input onChange={() => setSelected(4)} type="checkbox" />
+        </div>
+      </div>
     </div>
   );
 }
